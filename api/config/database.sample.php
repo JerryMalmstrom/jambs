@@ -2,9 +2,9 @@
 class Database{
     // specify your own database credentials
     private $host = "localhost";
-    private $db_name = "jry_api_db";
-    private $username = "api_user";
-    private $password = "1853";
+    private $db_name = "database_name";
+    private $username = "user_name";
+    private $password = "password";
     public $conn;
  
     // get the database connection
