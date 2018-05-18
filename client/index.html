@@ -9,8 +9,6 @@
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
-    <script src=""></script>
-
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="images/favicon.png">
@@ -75,19 +73,13 @@
         }
 
         .secondary.pointing.menu .toc.item {
-            display: none;
+            display: block;
         }
 
-        @media only screen and (max-width: 700px) {
-            .ui.fixed.menu {
-            display: none !important;
-            }
+        @media only screen and (max-width: 7000px) {
             .secondary.pointing.menu .item,
             .secondary.pointing.menu .menu {
             display: none;
-            }
-            .secondary.pointing.menu .toc.item {
-            display: block;
             }
             .masthead.segment {
             min-height: 350px;
@@ -132,23 +124,7 @@
 
 <body>
 <!-- Following Menu -->
-<div class="ui large top fixed hidden menu">
-        <div class="ui container">
-          <a class="active item">Home</a>
-          <a class="item">Work</a>
-          <a class="item">Company</a>
-          <a class="item">Careers</a>
-          <div class="right menu">
-            <div class="item">
-              <a class="ui button">Log in</a>
-            </div>
-            <div class="item">
-              <a class="ui primary button">Sign Up</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+
       <!-- Sidebar Menu -->
       <div class="ui vertical inverted sidebar menu">
         <a class="active item">Home</a>
