@@ -37,7 +37,8 @@ if($num>0){
         $customer_item=array(
             "id" => $id,
             "companyname" => $companyname,
-            "address" => $description,
+            "address" => $address,
+            "phonenumber" => $phonenumber,
             "email" => $email,
             "createdat" => $createdat,
             "createdby" => $createdby,
