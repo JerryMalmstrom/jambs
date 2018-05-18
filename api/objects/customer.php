@@ -209,7 +209,7 @@ class Customer{
                     id, companyname, address, phonenumber, email, createdat, createdby, updatedat, updatedby
                 FROM
                     " . $this->table_name . "
-                ORDER BY p.created DESC
+                ORDER BY createdat DESC
                 LIMIT ?, ?";
     
         // prepare query statement
