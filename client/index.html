@@ -16,18 +16,6 @@
 </head>
 
 <body>
-  <script>
-    $(document).ready(function() {
-      var testHTML = readApi("customers");
-      console.log(testHTML);
-      $("#test").append(testHTML);
-    });
-  </script>
-
-
-
-
-
   <div class="ui inverted huge borderless fixed fluid menu">
     <a class="header item">[JAMBS]</a>
     <div class="right menu">
@@ -112,5 +100,15 @@
       </div>
     </div>
   </div>
+
+  <script>
+    $(document).ready(function() {
+      var testHTML = readApi("customers");
+      console.log(testHTML);
+      $("#test").append(testHTML);
+    });
+  </script>
+
+
 </body>
 </html>
