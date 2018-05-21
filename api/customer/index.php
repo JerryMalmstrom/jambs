@@ -36,7 +36,7 @@
             "companyname" => $_PUT["companyname"],
             "address" => $_PUT["address"],
             "email" => $_PUT["address"],
-            "phonenumber" => $_PUT["married"],
+            "phonenumber" => $_PUT["phonenumber"],
             "updatedby" => intval($_PUT["updatedby"])
         ));
         break;
