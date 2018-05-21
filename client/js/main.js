@@ -1,31 +1,26 @@
-$(document).ready(function() {
-  // create sidebar and attach to menu open
-  $('.ui.sidebar').sidebar('attach events', '.toc.item');
-
-  readApi("customers");
-});
-
 function readApi (object) {
+  var returnHTML = "";
+  
   $.ajax({
-    url: "http://localhost/jmapi/api/customer/read.php",
+    url: "/jambs/api/customer/read.php",
     type: "GET",
-
+    
     contentType: 'application/json; charset=utf-8',
     success: function(resultData) {
-      console.log(resultData);
-      
       $.each(resultData.records, function( key, value) {
+        returnHTML += "<tr>"
         $.each(value, function( i, j ) {
-          console.log(i + ": " + j);
+          returnHTML += "<td>" + i + "</td><td>" + j + "</td>";
+          //console.log(i + ": " + j);
         });
-        //console.log(key + ": " + value.address);
+        returnHTML += "</tr>"
       });
-    
-
     },
     error : function(jqXHR, textStatus, errorThrown) {
     },
     timeout: 120000,
-});
+  });
+
+  return returnHTML;
 
 };
