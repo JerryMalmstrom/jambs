@@ -9,10 +9,21 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+    
+    <script src="js/settings.js"></script>
     <script src="js/main.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="images/favicon.png">
+
+    <script>
+      $(document).ready(function() {
+        var testHTML = readApi("customers");
+        //alert( testHTML );
+        $("#test").append(testHTML);
+      });
+    </script>
+
 </head>
 
 <body>
@@ -78,7 +89,7 @@
           </div>
           <div class="ui hidden section divider"></div>
           <div class="row">
-            <h1 class="ui huge header">Section title</h1>
+            <h1 class="ui huge header">Customers</h1>
           </div>
           <div class="ui divider"></div>
           <div class="row">
@@ -86,10 +97,14 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>Company</th>
+                  <th>Address</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Created At</th>
+                  <th>Created By</th>
+                  <th>Updated At</th>
+                  <th>Updated By</th>
                 </tr>
               </thead>
               <tbody id="test">
@@ -100,15 +115,5 @@
       </div>
     </div>
   </div>
-
-  <script>
-    $(document).ready(function() {
-      var testHTML = readApi("customers");
-      console.log(testHTML);
-      $("#test").append(testHTML);
-    });
-  </script>
-
-
 </body>
 </html>
