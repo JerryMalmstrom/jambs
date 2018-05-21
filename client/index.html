@@ -25,27 +25,60 @@
       $(document).ready(function() {
         
         $("#customer-data").jsGrid({
-            width: "100%",
-            filtering: true,
-            sorting: true,
-            autoload: true,
-            controller: {
-              loadData: function() {
-                return $.ajax({
-                    type: "GET",
-                    url: gURL + "customer/",
-                });
-              }
+          height: "auto",
+          width: "100%",
+  
+          inserting: true,
+          
+          editing: true,
+          sorting: true,
+          
+          autoload: true,
+  
+          pageSize: 15,
+          pageButtonCount: 5,
+  
+          deleteConfirm: "Do you really want to delete the client?",
+          controller: {
+            loadData: function(filter) {
+              return $.ajax({
+                  type: "GET",
+                  url: gURL + "customer/",
+                  data: filter
+              });
             },
-            
-            fields: [
-              {name:'id', title: 'ID'},
-              {name:'companyname', title: 'Name'},
-              {name:'address', title: 'Address'},
-              {name:'phonenumber', title: 'Phone'},
-              {name:'email', title: 'Email'},
-              {name:'createdat', title: 'Created At'}
-            ]
+            insertItem: function(item) {
+              return $.ajax({
+                type: "POST",
+                url: gURL + "customer/",
+                data: item
+              });
+            },
+            updateItem: function(item) {
+              return $.ajax({
+                  type: "PUT",
+                  url: gURL + "customer/",
+                  data: item
+              });
+            },
+          
+            deleteItem: function(item) {
+              return $.ajax({
+                type: "DELETE",
+                url: gURL + "customer/",
+                data: item
+              });
+            }
+          },          
+          fields: [
+            {name:'id', title: 'ID', type: 'number', inserting: false},
+            {name:'companyname', title: 'Name', type: 'text'},
+            {name:'address', title: 'Address', type: 'text'},
+            {name:'phonenumber', title: 'Phone', type: 'number'},
+            {name:'email', title: 'Email', type: 'text'},
+            {name:'createdat', title: 'Created At', type: 'text'},
+            {title: 'Edit', type: 'control'}
+          ]
         });
         
 
