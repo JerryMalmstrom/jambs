@@ -2,7 +2,7 @@ function readApi (object) {
   var returnHTML = "";
   
   $.ajax({
-    url: "/jambs/api/customer/read.php",
+    url: "https://www.jmns.se/jambs/api/customer/read.php",
     type: "GET",
     
     contentType: 'application/json; charset=utf-8',
