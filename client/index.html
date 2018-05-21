@@ -18,8 +18,9 @@
 <body>
   <script>
     $(document).ready(function() {
-      var HTML = readApi("customers");
-      $("#test").html(HTML);
+      var testHTML = readApi("customers");
+      console.log(testHTML);
+      $("#test").append(testHTML);
     });
   </script>
 
