@@ -9,7 +9,7 @@
     $db = $database->getConnection();
     
     // initialize object
-    $contact = new contact($db);
+    $contact = new Contact($db);
 
     switch($_SERVER["REQUEST_METHOD"]) {
         case "GET":
