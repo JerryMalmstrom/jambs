@@ -16,7 +16,8 @@
         $result = $customer->getAll(array(
             "id" => $_GET["id"],
             "companyname" => $_GET["companyname"],
-            "address" => $_GET["address"]
+            "address" => $_GET["address"],
+            "email" => $_GET["email"],
         ));
         break;
     }

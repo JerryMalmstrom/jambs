@@ -16,12 +16,12 @@ class CustomerObject{
 class Customer{
  
     // database connection and table name
-    private $conn;
+    private $db;
     private $table_name = "customers";
  
     // constructor with $db as database connection
     public function __construct($db){
-        $this->conn = $db;
+        $this->db = $db;
     }
 
     private function read($row){
