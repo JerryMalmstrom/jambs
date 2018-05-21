@@ -20,6 +20,30 @@
             "email" => $_GET["email"],
         ));
         break;
+        case "POST":
+        $result = $customer->insert(array(
+            "companyname" => $_POST["companyname"],
+            "address" => $_POST["address"],
+            "email" => $_POST["email"],
+            "phonenumber" => $_POST["phonenumber"],
+            "createdby" => intval($_POST["createdby"])
+        ));
+        break;
+        case "PUT":
+        parse_str(file_get_contents("php://input"), $_PUT);
+        $result = $customer->update(array(
+            "id" => intval($_PUT["id"]),
+            "companyname" => $_PUT["companyname"],
+            "address" => $_PUT["address"],
+            "email" => $_PUT["address"],
+            "phonenumber" => $_PUT["married"],
+            "updatedby" => intval($_PUT["updatedby"])
+        ));
+        break;
+        case "DELETE":
+            parse_str(file_get_contents("php://input"), $_DELETE);
+            $result = $customer->remove(intval($_DELETE["id"]));
+            break;
     }
     
     header("Access-Control-Allow-Origin: *");

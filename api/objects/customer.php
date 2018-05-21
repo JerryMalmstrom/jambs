@@ -64,4 +64,36 @@ class Customer{
         }
         return $result;
     }
+
+    public function insert($data) {
+        $sql = "INSERT INTO " . $this->table_name . " (companyname, address, email, phonenumber, createdby) VALUES (:companyname, :address, :email, :phonenumber, :createdby)";
+        $q = $this->db->prepare($sql);
+        $q->bindParam(":companyname", $data["companyname"]);
+        $q->bindParam(":address", $data["address"]);
+        $q->bindParam(":email", $data["email"]);
+        $q->bindParam(":phonenumber", $data["phonenumber"]);
+        $q->bindParam(":createdby", $data["createdby"], PDO::PARAM_INT);
+        $q->execute();
+        return $this->getById($this->db->lastInsertId());
+    }
+
+    public function update($data) {
+        $sql = "UPDATE " . $this->table_name . " SET companyname = :companyname, address = :address, email = :email, phonenumber = :phonenumber, updatedby = :updatedby WHERE id = :id";
+        $q = $this->db->prepare($sql);
+        $q->bindParam(":companyname", $data["companyname"]);
+        $q->bindParam(":address", $data["address"]);
+        $q->bindParam(":email", $data["email"]);
+        $q->bindParam(":phonenumber", $data["phonenumber"]);
+        $q->bindParam(":updatedby", $data["updatedby"], PDO::PARAM_INT);
+        $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
+        $q->execute();
+    }
+
+    public function remove($id) {
+        $sql = "DELETE FROM " . $this->table_name . " WHERE id = :id";
+        $q = $this->db->prepare($sql);
+        $q->bindParam(":id", $id, PDO::PARAM_INT);
+        $q->execute();
+    }
+
 }
