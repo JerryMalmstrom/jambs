@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -7,8 +8,12 @@
     <title></title>
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+    
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
     
     <script src="js/settings.js"></script>
     <script src="js/main.js"></script>
@@ -18,9 +23,35 @@
 
     <script>
       $(document).ready(function() {
-        var testHTML = readApi("customers");
-        //alert( testHTML );
-        $("#test").append(testHTML);
+        
+        $("#customer-data").jsGrid({
+            width: "100%",
+            filtering: true,
+            sorting: true,
+            autoload: true,
+            controller: {
+              loadData: function() {
+                return $.ajax({
+                    type: "GET",
+                    url: gURL + "customer/",
+                });
+              }
+            },
+            
+            fields: [
+              {name:'id', title: 'ID'},
+              {name:'companyname', title: 'Name'},
+              {name:'address', title: 'Address'},
+              {name:'phonenumber', title: 'Phone'},
+              {name:'email', title: 'Email'},
+              {name:'createdat', title: 'Created At'}
+            ]
+        });
+        
+
+
+
+        //$("#test").append(testHTML);
       });
     </script>
 
@@ -93,23 +124,9 @@
           </div>
           <div class="ui divider"></div>
           <div class="row">
-            <table class="ui single line striped selectable table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Company</th>
-                  <th>Address</th>
-                  <th>Phone</th>
-                  <th>Email</th>
-                  <th>Created At</th>
-                  <th>Created By</th>
-                  <th>Updated At</th>
-                  <th>Updated By</th>
-                </tr>
-              </thead>
-              <tbody id="test">
-              </tbody>
-            </table>
+            <div id="customer-data">
+              
+            </div>
           </div>
         </div>
       </div>
