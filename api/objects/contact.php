@@ -8,6 +8,7 @@ class ContactObject{
     public $phonenumber;
     public $email;
     public $companyid;
+    public $company;
     public $createdat;
     public $createdby;
     public $updatedat;
@@ -33,6 +34,7 @@ class Contact{
         $result->phonenumber = $row["phonenumber"];
         $result->email = $row["email"];
         $result->companyid = $row["companyid"];
+        $result->company = $row["company"];
         $result->createdat = $row["createdat"];
         $result->createdby = $row["createdby"];
         $result->updatedat = $row["updatedat"];
@@ -53,7 +55,8 @@ class Contact{
         $firstname = "%" . $filter["firstname"] . "%";
         $lastname = "%" . $filter["lastname"] . "%";
         $email = "%" . $filter["email"] . "%";
-        $sql = "SELECT * FROM " . $this->table_name . " WHERE firstname LIKE :firstname AND lastname LIKE :lastname AND email LIKE :email";
+        //$sql = "SELECT * FROM " . $this->table_name . " WHERE firstname LIKE :firstname AND lastname LIKE :lastname AND email LIKE :email";
+        $sql = "SELECT c.id, c.firstname, c.lastname, c.email, c.phonenumber, c.companyid, u.companyname AS company, c.createdby, c.createdat, c.updatedby, c.updatedat FROM " . $this->table_name . " c JOIN customers u ON u.id = c.companyid WHERE c.firstname LIKE :firstname AND c.lastname LIKE :lastname AND c.email LIKE :email";
         $q = $this->db->prepare($sql);
         $q->bindParam(":firstname", $firstname);
         $q->bindParam(":lastname", $lastname);
