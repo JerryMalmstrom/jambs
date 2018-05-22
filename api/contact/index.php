@@ -17,7 +17,7 @@
             "id" => $_GET["id"],
             "firstname" => $_GET["firstname"],
             "lastname" => $_GET["lastname"],
-            "email" => $_GET["email"],
+            "email" => $_GET["email"]
         ));
         break;
         case "POST":
