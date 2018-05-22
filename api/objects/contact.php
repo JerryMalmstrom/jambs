@@ -18,7 +18,7 @@ class Contact{
  
     // database connection and table name
     private $db;
-    private $table_name = "Contacts";
+    private $table_name = "contacts";
  
     // constructor with $db as database connection
     public function __construct($db){
