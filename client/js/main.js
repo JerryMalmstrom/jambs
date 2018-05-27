@@ -8,7 +8,7 @@ function useApi(object) {
         editing: true,
         sorting: true,
         autoload: true,
-        pageSize: 15,
+        pageSize: 5,
         pageButtonCount: 5,
         deleteConfirm: "Do you really want to delete the customer?",
         
@@ -61,7 +61,7 @@ function useApi(object) {
         editing: true,
         sorting: true,
         autoload: true,
-        pageSize: 15,
+        pageSize: 5,
         pageButtonCount: 5,
         deleteConfirm: "Do you really want to delete the contact?",
 
@@ -115,7 +115,7 @@ function useApi(object) {
         editing: true,
         sorting: true,
         autoload: true,
-        pageSize: 15,
+        pageSize: 5,
         pageButtonCount: 5,
         deleteConfirm: "Do you really want to delete the user?",
 
@@ -156,7 +156,9 @@ function useApi(object) {
           {name:'lastname', title: 'Lastname', type: 'text'},
           {name:'phonenumber', title: 'Phone', type: 'text'},
           {name:'email', title: 'Email', type: 'text'},
-          {name:'roles', title: 'Roles', type: 'text'},
+          {name:'roles', title: 'Roles', type: 'select', valueType: "string", items: [
+            "user", "admin"
+          ],},
           {name:'createdat', title: 'Created At', inserting: false, editing: false},
           {name:'lastlogin', title: 'Last Login', inserting: false, editing: false},
           {title: 'Edit', type: 'control'}
