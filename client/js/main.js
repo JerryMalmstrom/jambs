@@ -51,7 +51,10 @@ function useApi(object) {
           {name:'email', title: 'Email', type: 'text'},
           {name:'createdat', title: 'Created At'},
           {title: 'Edit', type: 'control'}
-        ]
+        ],
+        rowClick: function(args) {
+          alert(args.item['companyname']);
+        }
       });
       break;
     case "contact":
