@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title></title>
+    <title>Jambs - Customers</title>
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
@@ -15,17 +15,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
     
-    <script src="js/settings.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/main.js"></script>
 
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" href="../images/favicon.png">
 
     <script>
       $(document).ready(function() {
         useApi("customer");
-        useApi("contact");
-        useApi("user");
       });
     </script>
 
@@ -65,40 +63,16 @@
       <div class="column" id="content">
         <div class="ui grid">
           <div class="row">
-            <h1 class="ui huge header">Dashboard</h1>
-          </div>
-          <div class="ui divider"></div>
-          <div class="four column center aligned row">
-            <div class="column">
-              <img class="ui centered small circular image" src="images/square-image.png" />
-              <div class="ui hidden divider"></div>
-              <div class="ui large green label">Label</div>
-              <p>Something else</p>
-            </div>
-            <div class="column">
-              <img class="ui centered small circular image" src="images/square-image.png" />
-              <div class="ui hidden divider"></div>
-              <div class="ui large blue label">Label</div>
-              <p>Something else</p>
-            </div>
-            <div class="column">
-              <img class="ui centered small circular image" src="images/square-image.png" />
-              <div class="ui hidden divider"></div>
-              <div class="ui large pink label">Label</div>
-              <p>Something else</p>
-            </div>
-            <div class="column">
-              <img class="ui centered small circular image" src="images/square-image.png" />
-              <div class="ui hidden divider"></div>
-              <div class="ui large red label">Label</div>
-              <p>Something else</p>
-            </div>
-          </div>
-          <div class="ui hidden section divider"></div>
-          <div class="row">
             <h1 class="ui huge header">Customers</h1>
           </div>
           <div class="ui divider"></div>
+          <div class="row">
+            <div id="customer-data">
+              
+            </div>
+          </div>
+          <div class="ui divider"></div>
+          </div>
         </div>
       </div>
     </div>
